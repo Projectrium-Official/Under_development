@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Development</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: url('background.avif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .dev-box {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.08); 
+            padding: 50px 30px;
+            border-radius: 24px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1.4;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            .dev-box {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dev-box">
+        <h1>This website is still in development</h1>
+    </div>
+
+</body>
+</html>
