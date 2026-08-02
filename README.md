@@ -1,2 +1,3 @@
 # Hi!
-Use this as a free placeholder for your unfinished website!
+
+This is the placeholder page for projectrium.com for now!
