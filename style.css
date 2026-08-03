@@ -1,3 +1,6 @@
+/* ==========================================
+   1. 全域重設與基礎樣式
+   ========================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,29 +14,13 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 100px 20px 40px 20px;
-    gap: 20px;
+    padding: 100px 0 0 0; /* 移除左右留白，底部留白由 footer 處理 */
 }
 
-.top-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
-    box-sizing: border-box;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* ==========================================
+   2. 頂部導覽列 (Top Navigation Bar)
+   ========================================== */
 .top-bar {
     position: fixed;
     top: 0;
@@ -67,8 +54,22 @@ body {
     filter: brightness(0) invert(1);
 }
 
-.dev-box {
+/* ==========================================
+   3. 主要內容區與內容方塊 (Main Content & Dev Box)
+   ========================================== */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
     max-width: 500px;
+    padding: 20px; /* 將內縮移至此處，確保內容不貼齊螢幕邊緣 */
+}
+
+.dev-box {
     width: 100%;
     background: rgba(255, 255, 255, 0.08);
     padding: 50px 30px;
@@ -98,6 +99,47 @@ p {
     font-weight: 700;
 }
 
+/* ==========================================
+   4. 滿版頁尾樣式 (Full-width Footer)
+   ========================================== */
+.footer {
+    width: 100%; /* 填滿整個瀏覽器寬度 */
+    margin-top: 40px;
+    padding: 25px 40px; /* 增加兩側與上下的內襯留白 */
+    background: rgba(255, 255, 255, 0.03); /* 稍微降低透明度，讓滿版看起來更精緻 */
+    backdrop-filter: blur(10px); /* 提升滿版的毛玻璃模糊效果 */
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 改為僅有頂部邊框，做出切分感 */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.2); /* 陰影改為向上投射 */
+}
+
+.footer-text, .footer-contact {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.footer-contact a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #00bcd4;
+    border-bottom-color: #00bcd4;
+}
+
+/* ==========================================
+   5. 響應式斷點 (RWD Media Queries)
+   ========================================== */
 @media (max-width: 480px) {
     h1 {
         font-size: 1.6rem;
@@ -111,5 +153,9 @@ p {
     }
     .logo img {
         height: 35px;
+    }
+    .footer {
+        padding: 20px 20px; /* 手機版縮減留白 */
+        font-size: 0.85rem;
     }
 }
