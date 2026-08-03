@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0 0 0; /* 移除左右留白，底部留白由 footer 處理 */
+    padding: 100px 0 0 0; /* 頂部預留導覽列空間 */
 }
 
 /* ==========================================
@@ -66,7 +66,7 @@ body {
     gap: 20px;
     width: 100%;
     max-width: 500px;
-    padding: 20px; /* 將內縮移至此處，確保內容不貼齊螢幕邊緣 */
+    padding: 20px 20px 120px 20px; /* 底部加上 120px 留白，防止內容被固定的 footer 遮擋 */
 }
 
 .dev-box {
@@ -100,41 +100,44 @@ p {
 }
 
 /* ==========================================
-   4. 滿版頁尾樣式 (Full-width Footer)
+   4. 滿版頁尾樣式 (Fixed Bottom Footer)
    ========================================== */
 .footer {
-    width: 100%; /* 填滿整個瀏覽器寬度 */
-    margin-top: 40px;
-    padding: 25px 40px; /* 增加兩側與上下的內襯留白 */
-    background: rgba(255, 255, 255, 0.03); /* 稍微降低透明度，讓滿版看起來更精緻 */
-    backdrop-filter: blur(10px); /* 提升滿版的毛玻璃模糊效果 */
+    position: fixed;   /* 強制固定在視窗上 */
+    bottom: 0;         /* 緊貼最底部 */
+    left: 0;           /* 從最左邊延伸 */
+    width: 100%;       /* 滿版填滿寬度 */
+    padding: 20px 40px; 
+    background: rgba(0, 0, 0, 0.35); /* 改為暗色半透明，確保在綠色草地上文字能清晰閱讀 */
+    backdrop-filter: blur(10px);     /* 精緻的毛玻璃模糊特效 */
     -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 改為僅有頂部邊框，做出切分感 */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.2); /* 陰影改為向上投射 */
+    gap: 6px;
+    z-index: 1000;     /* 確保層級在最上層，不被其他內容覆蓋 */
 }
 
 .footer-text, .footer-contact {
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.8); /* 提升文字白度，增加對比 */
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .footer-contact a {
-    color: #ffffff;
+    color: #00e5ff; /* 改用亮青色連結，在深色半透明背景上更亮眼 */
     text-decoration: none;
     font-weight: 600;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+    border-bottom: 1px dashed rgba(0, 229, 255, 0.4);
     transition: all 0.3s ease;
 }
 
 .footer-contact a:hover {
-    color: #00bcd4;
-    border-bottom-color: #00bcd4;
+    color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 
 /* ==========================================
@@ -155,7 +158,7 @@ p {
         height: 35px;
     }
     .footer {
-        padding: 20px 20px; /* 手機版縮減留白 */
+        padding: 15px 20px;
         font-size: 0.85rem;
     }
 }
